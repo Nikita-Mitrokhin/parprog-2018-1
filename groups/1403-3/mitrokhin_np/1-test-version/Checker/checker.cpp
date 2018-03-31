@@ -57,14 +57,20 @@ public:   enum ext_cls { NO = 1, VERDICT, MESSAGE, TIME, MEMORY };       result(
 		  }
 } checker_result; //////////////////////////////////////////////////////////////////////////////////////////// 
 
-int main()
+int main(int argc, char* argv[])
 {
 	FILE * f1;
 	double time;
 	int n;
 	double* tmp;
 
-	freopen_s(&f1, "..//sort.out", "rb", stdin);
+	std::string fileName = "sort";
+		if (argc == 2) {
+		fileName = argv[1];	
+		
+	}
+	
+	freopen_s(&f1, ("..//" + fileName + ".out").c_str(), "rb", stdin);
 	fread(&time, sizeof(time), 1, stdin);
 	fread(&n, sizeof(n), 1, stdin);
 	tmp = new double[n];

@@ -12,8 +12,13 @@ int main(int argc, char * argv[])
 	FILE* f1;
 	FILE* f2;
 
-	freopen_s(&f1, "..//sort.in", "rb", stdin);
-	freopen_s(&f2, "..//sort.out", "wb", stdout);
+	std::string fileName = "sort";
+	if (argc == 2) {
+		fileName = argv[1];
+		
+	}
+	freopen_s(&f1, ("..//" + fileName + ".in").c_str(), "rb", stdin);
+	freopen_s(&f2, ("..//" + fileName + ".out").c_str(), "wb", stdout);
 
 	fread(&size, sizeof(size), 1, stdin);
 	dataArray = new double[size];
